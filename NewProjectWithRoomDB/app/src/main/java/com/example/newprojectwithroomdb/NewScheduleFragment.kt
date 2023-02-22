@@ -9,6 +9,7 @@ import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import android.widget.RadioButton
+import com.example.newprojectwithroomdb.customdialogs.DatePickerFragment
 import com.example.newprojectwithroomdb.databinding.FragmentNewScheduleBinding
 
 class NewScheduleFragment : Fragment() {
@@ -25,6 +26,14 @@ class NewScheduleFragment : Fragment() {
         binding = FragmentNewScheduleBinding.inflate(inflater,container,false)
         initSpinner()
         initBusTypeRadioGroup()
+        binding.dateBtn.setOnClickListener {
+            DatePickerFragment {
+                binding.showDateTV.text = it
+            }.show(childFragmentManager,null)
+        }
+        binding.timeBtn.setOnClickListener {
+
+        }
         return binding.root
     }
 
