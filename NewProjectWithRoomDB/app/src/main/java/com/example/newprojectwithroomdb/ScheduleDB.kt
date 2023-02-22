@@ -13,3 +13,5 @@ data class BusSchedule(
     val departureTime: String,
     val busType: String
 )
+
+val scheduleList = mutableListOf<BusSchedule>()

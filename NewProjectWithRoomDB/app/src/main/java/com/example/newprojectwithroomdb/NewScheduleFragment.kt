@@ -11,6 +11,7 @@ import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import android.widget.RadioButton
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.newprojectwithroomdb.customdialogs.DatePickerFragment
 import com.example.newprojectwithroomdb.customdialogs.TimePickerFragment
 import com.example.newprojectwithroomdb.databinding.FragmentNewScheduleBinding
@@ -68,6 +69,8 @@ class NewScheduleFragment : Fragment() {
             from = from,
             to = to
         )
+        scheduleList.add(schedule)
+        findNavController().navigate(R.id.action_newScheduleFragment_to_scheduleListFragment)
         Log.d("NewScheduleFragment","saveInfo: $schedule")
         Toast.makeText(requireActivity(), "$schedule", Toast.LENGTH_SHORT).show()
     }
