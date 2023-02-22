@@ -16,8 +16,18 @@ class NewScheduleFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentNewScheduleBinding.inflate(inflater,container,false)
+        initSpinner()
         return binding.root
     }
 
+    private fun initSpinner() {
+        val adapter = ArrayAdapter<String>(
+            requireActivity(),
+            android.R.layout.simple_dropdown_item_1line,
+            cityList
+        )
+        binding.citySpinnerFrom.adapter = adapter
+        binding.citySpinnerTo.adapter = adapter
+    }
 
 }
